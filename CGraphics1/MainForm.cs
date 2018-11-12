@@ -325,27 +325,18 @@ namespace CGraphics1
             DrawAxisAndGrid();
         }
 
-        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)//ScaleButton
         {
             ModelView.Image = new Bitmap(ModelView.Width, ModelView.Height);
             Graphics g = Graphics.FromImage(ModelView.Image);
-            DrawAxisAndGrid();
             Types.Matrix matrix = new Types.Matrix(Convert.ToDouble(ScX.Text), 0, 0,
                 0, Convert.ToDouble(ScY.Text), 0, 
                 0, 0, 1);
             drawing.Transform(matrix);
+            gridandaxis.Transform(matrix);
+            DrawAxisAndGrid();
             drawing.Draw(g);
             ModelView.Refresh();
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void RotateOzButton_Click(object sender, EventArgs e)
@@ -439,6 +430,11 @@ namespace CGraphics1
             DrawAxisAndGrid();
             drawing.Draw(g);
             ModelView.Refresh();
+        }
+
+        private void CurveDrawButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

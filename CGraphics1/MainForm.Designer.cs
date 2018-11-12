@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.StartButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.SizesCheckBox = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.GridCheckBox = new System.Windows.Forms.CheckBox();
@@ -44,6 +44,14 @@
             this.Abox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.CurveDrawButton = new System.Windows.Forms.Button();
+            this.CurveFiTextBox = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.CurveATextBox = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TranslateButton = new System.Windows.Forms.Button();
             this.TrY = new System.Windows.Forms.TextBox();
@@ -121,6 +129,9 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -137,6 +148,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
             // 
             // splitContainer1.Panel2
@@ -147,23 +159,33 @@
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(8, 646);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(280, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Clear Drawing";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(298, 672);
+            this.tabControl1.Size = new System.Drawing.Size(298, 644);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.StartButton);
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.SizesCheckBox);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.GridCheckBox);
@@ -178,7 +200,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(290, 646);
+            this.tabPage1.Size = new System.Drawing.Size(290, 618);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Drawing";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -192,16 +214,6 @@
             this.StartButton.Text = "Start Drawing";
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(4, 618);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(280, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Clear Drawing";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SizesCheckBox
             // 
@@ -302,6 +314,86 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "R3 :";
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.CurveDrawButton);
+            this.tabPage5.Controls.Add(this.CurveFiTextBox);
+            this.tabPage5.Controls.Add(this.label39);
+            this.tabPage5.Controls.Add(this.pictureBox3);
+            this.tabPage5.Controls.Add(this.CurveATextBox);
+            this.tabPage5.Controls.Add(this.label38);
+            this.tabPage5.Controls.Add(this.pictureBox2);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(290, 618);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Curve";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // CurveDrawButton
+            // 
+            this.CurveDrawButton.Location = new System.Drawing.Point(4, 580);
+            this.CurveDrawButton.Name = "CurveDrawButton";
+            this.CurveDrawButton.Size = new System.Drawing.Size(280, 23);
+            this.CurveDrawButton.TabIndex = 8;
+            this.CurveDrawButton.Text = "Draw Curve";
+            this.CurveDrawButton.UseVisualStyleBackColor = true;
+            this.CurveDrawButton.Click += new System.EventHandler(this.CurveDrawButton_Click);
+            // 
+            // CurveFiTextBox
+            // 
+            this.CurveFiTextBox.Location = new System.Drawing.Point(44, 233);
+            this.CurveFiTextBox.Name = "CurveFiTextBox";
+            this.CurveFiTextBox.Size = new System.Drawing.Size(128, 20);
+            this.CurveFiTextBox.TabIndex = 6;
+            this.CurveFiTextBox.Text = "10";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(11, 236);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(18, 13);
+            this.label39.TabIndex = 7;
+            this.label39.Text = "φ:";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::CGraphics1.Properties.Resources.VerzFormulae;
+            this.pictureBox3.Location = new System.Drawing.Point(95, 148);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // CurveATextBox
+            // 
+            this.CurveATextBox.Location = new System.Drawing.Point(44, 207);
+            this.CurveATextBox.Name = "CurveATextBox";
+            this.CurveATextBox.Size = new System.Drawing.Size(128, 20);
+            this.CurveATextBox.TabIndex = 3;
+            this.CurveATextBox.Text = "1";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(11, 210);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(16, 13);
+            this.label38.TabIndex = 4;
+            this.label38.Text = "a:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CGraphics1.Properties.Resources._512px_Witch_of_Agnesi_21;
+            this.pictureBox2.Location = new System.Drawing.Point(7, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(277, 136);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.TranslateButton);
@@ -322,24 +414,17 @@
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.RtAngOz);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.ScY);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.ScX);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.ScalingButton);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(290, 646);
+            this.tabPage2.Size = new System.Drawing.Size(290, 618);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Euclid";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // TranslateButton
             // 
-            this.TranslateButton.Location = new System.Drawing.Point(209, 338);
+            this.TranslateButton.Location = new System.Drawing.Point(209, 244);
             this.TranslateButton.Name = "TranslateButton";
             this.TranslateButton.Size = new System.Drawing.Size(75, 23);
             this.TranslateButton.TabIndex = 23;
@@ -349,7 +434,7 @@
             // 
             // TrY
             // 
-            this.TrY.Location = new System.Drawing.Point(30, 340);
+            this.TrY.Location = new System.Drawing.Point(30, 246);
             this.TrY.Name = "TrY";
             this.TrY.Size = new System.Drawing.Size(100, 20);
             this.TrY.TabIndex = 22;
@@ -358,7 +443,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 343);
+            this.label15.Location = new System.Drawing.Point(7, 249);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(17, 13);
             this.label15.TabIndex = 21;
@@ -368,7 +453,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 318);
+            this.label16.Location = new System.Drawing.Point(7, 224);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(17, 13);
             this.label16.TabIndex = 20;
@@ -377,7 +462,7 @@
             // 
             // TrX
             // 
-            this.TrX.Location = new System.Drawing.Point(30, 315);
+            this.TrX.Location = new System.Drawing.Point(30, 221);
             this.TrX.Name = "TrX";
             this.TrX.Size = new System.Drawing.Size(100, 20);
             this.TrX.TabIndex = 19;
@@ -386,7 +471,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 290);
+            this.label14.Location = new System.Drawing.Point(7, 196);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(54, 13);
             this.label14.TabIndex = 18;
@@ -394,7 +479,7 @@
             // 
             // RotatePointButton
             // 
-            this.RotatePointButton.Location = new System.Drawing.Point(209, 248);
+            this.RotatePointButton.Location = new System.Drawing.Point(209, 154);
             this.RotatePointButton.Name = "RotatePointButton";
             this.RotatePointButton.Size = new System.Drawing.Size(75, 23);
             this.RotatePointButton.TabIndex = 17;
@@ -405,7 +490,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 251);
+            this.label13.Location = new System.Drawing.Point(7, 157);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(37, 13);
             this.label13.TabIndex = 16;
@@ -414,7 +499,7 @@
             // 
             // RtPtAng
             // 
-            this.RtPtAng.Location = new System.Drawing.Point(50, 248);
+            this.RtPtAng.Location = new System.Drawing.Point(50, 154);
             this.RtPtAng.Name = "RtPtAng";
             this.RtPtAng.Size = new System.Drawing.Size(100, 20);
             this.RtPtAng.TabIndex = 15;
@@ -422,7 +507,7 @@
             // 
             // RtPtY
             // 
-            this.RtPtY.Location = new System.Drawing.Point(30, 222);
+            this.RtPtY.Location = new System.Drawing.Point(30, 128);
             this.RtPtY.Name = "RtPtY";
             this.RtPtY.Size = new System.Drawing.Size(100, 20);
             this.RtPtY.TabIndex = 14;
@@ -431,7 +516,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 225);
+            this.label11.Location = new System.Drawing.Point(7, 131);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(17, 13);
             this.label11.TabIndex = 13;
@@ -441,7 +526,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 200);
+            this.label12.Location = new System.Drawing.Point(7, 106);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(17, 13);
             this.label12.TabIndex = 12;
@@ -450,7 +535,7 @@
             // 
             // RtPtX
             // 
-            this.RtPtX.Location = new System.Drawing.Point(30, 197);
+            this.RtPtX.Location = new System.Drawing.Point(30, 103);
             this.RtPtX.Name = "RtPtX";
             this.RtPtX.Size = new System.Drawing.Size(100, 20);
             this.RtPtX.TabIndex = 11;
@@ -458,7 +543,7 @@
             // 
             // RotateOzButton
             // 
-            this.RotateOzButton.Location = new System.Drawing.Point(209, 131);
+            this.RotateOzButton.Location = new System.Drawing.Point(209, 37);
             this.RotateOzButton.Name = "RotateOzButton";
             this.RotateOzButton.Size = new System.Drawing.Size(75, 23);
             this.RotateOzButton.TabIndex = 10;
@@ -469,7 +554,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 172);
+            this.label10.Location = new System.Drawing.Point(7, 78);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 13);
             this.label10.TabIndex = 9;
@@ -478,7 +563,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 136);
+            this.label9.Location = new System.Drawing.Point(7, 42);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 8;
@@ -487,7 +572,7 @@
             // 
             // RtAngOz
             // 
-            this.RtAngOz.Location = new System.Drawing.Point(50, 133);
+            this.RtAngOz.Location = new System.Drawing.Point(50, 39);
             this.RtAngOz.Name = "RtAngOz";
             this.RtAngOz.Size = new System.Drawing.Size(100, 20);
             this.RtAngOz.TabIndex = 7;
@@ -496,7 +581,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 108);
+            this.label8.Location = new System.Drawing.Point(7, 14);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 13);
             this.label8.TabIndex = 6;
@@ -504,7 +589,7 @@
             // 
             // ScY
             // 
-            this.ScY.Location = new System.Drawing.Point(30, 60);
+            this.ScY.Location = new System.Drawing.Point(31, 330);
             this.ScY.Name = "ScY";
             this.ScY.Size = new System.Drawing.Size(100, 20);
             this.ScY.TabIndex = 5;
@@ -513,7 +598,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 63);
+            this.label7.Location = new System.Drawing.Point(8, 333);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(17, 13);
             this.label7.TabIndex = 4;
@@ -523,7 +608,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 38);
+            this.label6.Location = new System.Drawing.Point(8, 308);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(17, 13);
             this.label6.TabIndex = 3;
@@ -532,7 +617,7 @@
             // 
             // ScX
             // 
-            this.ScX.Location = new System.Drawing.Point(30, 35);
+            this.ScX.Location = new System.Drawing.Point(31, 305);
             this.ScX.Name = "ScX";
             this.ScX.Size = new System.Drawing.Size(100, 20);
             this.ScX.TabIndex = 2;
@@ -541,7 +626,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 13);
+            this.label5.Location = new System.Drawing.Point(8, 283);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 1;
@@ -549,7 +634,7 @@
             // 
             // ScalingButton
             // 
-            this.ScalingButton.Location = new System.Drawing.Point(209, 58);
+            this.ScalingButton.Location = new System.Drawing.Point(210, 328);
             this.ScalingButton.Name = "ScalingButton";
             this.ScalingButton.Size = new System.Drawing.Size(75, 23);
             this.ScalingButton.TabIndex = 0;
@@ -559,10 +644,16 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.ScalingButton);
             this.tabPage3.Controls.Add(this.AffOY);
+            this.tabPage3.Controls.Add(this.ScX);
             this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.AffOX);
+            this.tabPage3.Controls.Add(this.ScY);
             this.tabPage3.Controls.Add(this.label25);
             this.tabPage3.Controls.Add(this.AffRx2Y);
             this.tabPage3.Controls.Add(this.label20);
@@ -577,7 +668,7 @@
             this.tabPage3.Controls.Add(this.AffTransformButton);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(290, 646);
+            this.tabPage3.Size = new System.Drawing.Size(290, 618);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Affine";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -719,7 +810,7 @@
             // 
             // AffTransformButton
             // 
-            this.AffTransformButton.Location = new System.Drawing.Point(3, 255);
+            this.AffTransformButton.Location = new System.Drawing.Point(3, 245);
             this.AffTransformButton.Name = "AffTransformButton";
             this.AffTransformButton.Size = new System.Drawing.Size(284, 23);
             this.AffTransformButton.TabIndex = 6;
@@ -753,7 +844,7 @@
             this.tabPage4.Controls.Add(this.PrTransform);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(290, 646);
+            this.tabPage4.Size = new System.Drawing.Size(290, 618);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Projection";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -994,7 +1085,6 @@
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
-            this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1018,6 +1108,10 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -1119,6 +1213,14 @@
         private System.Windows.Forms.TextBox PrRx1X;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Button PrTransform;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox CurveATextBox;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button CurveDrawButton;
+        private System.Windows.Forms.TextBox CurveFiTextBox;
+        private System.Windows.Forms.Label label39;
     }
 }
 
