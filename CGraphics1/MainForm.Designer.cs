@@ -34,7 +34,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.StartButton = new System.Windows.Forms.Button();
             this.SizesCheckBox = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.GridCheckBox = new System.Windows.Forms.CheckBox();
             this.R1box = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,12 +45,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.CurveDrawButton = new System.Windows.Forms.Button();
-            this.CurveFiTextBox = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.CurveATextBox = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TranslateButton = new System.Windows.Forms.Button();
             this.TrY = new System.Windows.Forms.TextBox();
@@ -71,17 +66,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.RtAngOz = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.ScY = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ScX = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.ScalingButton = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.AffOY = new System.Windows.Forms.TextBox();
+            this.ScX = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.AffOX = new System.Windows.Forms.TextBox();
+            this.ScY = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.AffRx2Y = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -122,20 +117,24 @@
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.CurveAnimCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -225,15 +224,6 @@
             this.SizesCheckBox.Text = "Draw sizes";
             this.SizesCheckBox.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CGraphics1.Properties.Resources.njw_photo_resizer_ru;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(277, 265);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
             // GridCheckBox
             // 
             this.GridCheckBox.AutoSize = true;
@@ -316,9 +306,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.CurveAnimCheckBox);
             this.tabPage5.Controls.Add(this.CurveDrawButton);
-            this.tabPage5.Controls.Add(this.CurveFiTextBox);
-            this.tabPage5.Controls.Add(this.label39);
             this.tabPage5.Controls.Add(this.pictureBox3);
             this.tabPage5.Controls.Add(this.CurveATextBox);
             this.tabPage5.Controls.Add(this.label38);
@@ -341,58 +330,22 @@
             this.CurveDrawButton.UseVisualStyleBackColor = true;
             this.CurveDrawButton.Click += new System.EventHandler(this.CurveDrawButton_Click);
             // 
-            // CurveFiTextBox
-            // 
-            this.CurveFiTextBox.Location = new System.Drawing.Point(44, 233);
-            this.CurveFiTextBox.Name = "CurveFiTextBox";
-            this.CurveFiTextBox.Size = new System.Drawing.Size(128, 20);
-            this.CurveFiTextBox.TabIndex = 6;
-            this.CurveFiTextBox.Text = "10";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(11, 236);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(18, 13);
-            this.label39.TabIndex = 7;
-            this.label39.Text = "φ:";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::CGraphics1.Properties.Resources.VerzFormulae;
-            this.pictureBox3.Location = new System.Drawing.Point(95, 148);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
             // CurveATextBox
             // 
-            this.CurveATextBox.Location = new System.Drawing.Point(44, 207);
+            this.CurveATextBox.Location = new System.Drawing.Point(38, 216);
             this.CurveATextBox.Name = "CurveATextBox";
             this.CurveATextBox.Size = new System.Drawing.Size(128, 20);
             this.CurveATextBox.TabIndex = 3;
-            this.CurveATextBox.Text = "1";
+            this.CurveATextBox.Text = "100";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(11, 210);
+            this.label38.Location = new System.Drawing.Point(5, 219);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(16, 13);
             this.label38.TabIndex = 4;
             this.label38.Text = "a:";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CGraphics1.Properties.Resources._512px_Witch_of_Agnesi_21;
-            this.pictureBox2.Location = new System.Drawing.Point(7, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(277, 136);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // tabPage2
             // 
@@ -587,61 +540,6 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Rotating(Oz):";
             // 
-            // ScY
-            // 
-            this.ScY.Location = new System.Drawing.Point(31, 330);
-            this.ScY.Name = "ScY";
-            this.ScY.Size = new System.Drawing.Size(100, 20);
-            this.ScY.TabIndex = 5;
-            this.ScY.Text = "1";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 333);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Y:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 308);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "X:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ScX
-            // 
-            this.ScX.Location = new System.Drawing.Point(31, 305);
-            this.ScX.Name = "ScX";
-            this.ScX.Size = new System.Drawing.Size(100, 20);
-            this.ScX.TabIndex = 2;
-            this.ScX.Text = "1";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 283);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Scaling:";
-            // 
-            // ScalingButton
-            // 
-            this.ScalingButton.Location = new System.Drawing.Point(210, 328);
-            this.ScalingButton.Name = "ScalingButton";
-            this.ScalingButton.Size = new System.Drawing.Size(75, 23);
-            this.ScalingButton.TabIndex = 0;
-            this.ScalingButton.Text = "Scale";
-            this.ScalingButton.UseVisualStyleBackColor = true;
-            this.ScalingButton.Click += new System.EventHandler(this.button2_Click);
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label5);
@@ -673,6 +571,25 @@
             this.tabPage3.Text = "Affine";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 283);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Scaling:";
+            // 
+            // ScalingButton
+            // 
+            this.ScalingButton.Location = new System.Drawing.Point(210, 328);
+            this.ScalingButton.Name = "ScalingButton";
+            this.ScalingButton.Size = new System.Drawing.Size(75, 23);
+            this.ScalingButton.TabIndex = 0;
+            this.ScalingButton.Text = "Scale";
+            this.ScalingButton.UseVisualStyleBackColor = true;
+            this.ScalingButton.Click += new System.EventHandler(this.button2_Click);
+            // 
             // AffOY
             // 
             this.AffOY.Location = new System.Drawing.Point(31, 219);
@@ -680,6 +597,14 @@
             this.AffOY.Size = new System.Drawing.Size(100, 20);
             this.AffOY.TabIndex = 21;
             this.AffOY.Text = "0";
+            // 
+            // ScX
+            // 
+            this.ScX.Location = new System.Drawing.Point(31, 305);
+            this.ScX.Name = "ScX";
+            this.ScX.Size = new System.Drawing.Size(100, 20);
+            this.ScX.TabIndex = 2;
+            this.ScX.Text = "1";
             // 
             // label23
             // 
@@ -691,6 +616,16 @@
             this.label23.Text = "Y:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 308);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(17, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "X:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -701,6 +636,16 @@
             this.label24.Text = "X:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 333);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Y:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AffOX
             // 
             this.AffOX.Location = new System.Drawing.Point(31, 194);
@@ -708,6 +653,14 @@
             this.AffOX.Size = new System.Drawing.Size(100, 20);
             this.AffOX.TabIndex = 18;
             this.AffOX.Text = "0";
+            // 
+            // ScY
+            // 
+            this.ScY.Location = new System.Drawing.Point(31, 330);
+            this.ScY.Name = "ScY";
+            this.ScY.Size = new System.Drawing.Size(100, 20);
+            this.ScY.TabIndex = 5;
+            this.ScY.Text = "1";
             // 
             // label25
             // 
@@ -1086,6 +1039,46 @@
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CGraphics1.Properties.Resources.njw_photo_resizer_ru;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(277, 265);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::CGraphics1.Properties.Resources.CurveFormulae;
+            this.pictureBox3.Location = new System.Drawing.Point(95, 148);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CGraphics1.Properties.Resources._512px_Witch_of_Agnesi_21;
+            this.pictureBox2.Location = new System.Drawing.Point(7, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(277, 136);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // CurveAnimCheckBox
+            // 
+            this.CurveAnimCheckBox.AutoSize = true;
+            this.CurveAnimCheckBox.Checked = true;
+            this.CurveAnimCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CurveAnimCheckBox.Location = new System.Drawing.Point(8, 242);
+            this.CurveAnimCheckBox.Name = "CurveAnimCheckBox";
+            this.CurveAnimCheckBox.Size = new System.Drawing.Size(64, 17);
+            this.CurveAnimCheckBox.TabIndex = 12;
+            this.CurveAnimCheckBox.Text = "Animate";
+            this.CurveAnimCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1107,11 +1100,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -1120,6 +1110,9 @@
             this.tabPage4.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1219,8 +1212,7 @@
         private System.Windows.Forms.TextBox CurveATextBox;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button CurveDrawButton;
-        private System.Windows.Forms.TextBox CurveFiTextBox;
-        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.CheckBox CurveAnimCheckBox;
     }
 }
 

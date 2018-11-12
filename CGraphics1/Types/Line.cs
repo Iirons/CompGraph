@@ -27,7 +27,18 @@ namespace CGraphics1.Types
 
         public void Draw(Graphics g)
         {
-            g.DrawLine(pen, start, end);
+            //if(start.X>=-1000 && start.X<=1000 &&
+            //    start.Y >= -1000 && start.Y <= 1000 &&
+            //    end.X >= -1000 && end.X <= 1000 &&
+            //    end.Y >= -1000 && end.Y <= 1000)
+            try
+            {
+                g.DrawLine(pen, start, end);
+
+            }catch(Exception r)
+            {
+
+            }
         }
     }
 }

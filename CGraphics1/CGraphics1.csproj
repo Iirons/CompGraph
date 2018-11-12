@@ -52,6 +52,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Types\Curve.cs" />
     <Compile Include="Types\Drawing.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -64,6 +65,7 @@
     <Compile Include="Types\Line.cs" />
     <Compile Include="Types\Matrix.cs" />
     <Compile Include="Types\TextPoint.cs" />
+    <Compile Include="Validation.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,7 +94,7 @@
     <None Include="Resources\njw_photo-resizer.ru.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Lab1\" />
+    <None Include="Resources\CurveFormulae.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Witch_of_Agnesi_2.svg.png" />
