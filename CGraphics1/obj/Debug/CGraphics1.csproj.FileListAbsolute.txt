@@ -1,0 +1,10 @@
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\bin\Debug\CGraphics1.exe.config
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\bin\Debug\CGraphics1.exe
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\bin\Debug\CGraphics1.pdb
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\obj\Debug\CGraphics1.csprojAssemblyReference.cache
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\obj\Debug\CGraphics1.MainForm.resources
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\obj\Debug\CGraphics1.Properties.Resources.resources
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\obj\Debug\CGraphics1.csproj.GenerateResource.cache
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\obj\Debug\CGraphics1.csproj.CoreCompileInputs.cache
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\obj\Debug\CGraphics1.exe
+c:\users\xtreme.ws\source\repos\CGraphics\CGraphics1\obj\Debug\CGraphics1.pdb
