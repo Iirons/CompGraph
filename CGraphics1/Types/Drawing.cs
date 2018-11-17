@@ -91,28 +91,72 @@ namespace CGraphics1.Lab1
 
         public void Transform(Matrix T)
         {
+            bool xneg, yneg;
             Matrix rez;
             for (int i = 0; i < lines.Count; i++)
             {
+                xneg = false;
+                yneg = false;
                 lines[i].start.X -= _x;
                 lines[i].start.Y -= _y;
                 lines[i].end.X -= _x;
                 lines[i].end.Y -= _y;
+
+                /*if (lines[i].end.X < 0)
+                //{
+                //    lines[i].end.X = Math.Abs(lines[i].end.X);
+                //    xneg = true;
+                //}
+                //if (lines[i].end.Y < 0)
+                //{
+                //    lines[i].end.Y = Math.Abs(lines[i].end.Y);
+                //    yneg = true;
+                //}*/
 
                 rez = new Matrix(lines[i].end.X, lines[i].end.Y, lines[i].we);
                 rez = rez.Multiple(T);
                 lines[i].we = (int)(rez.matrix[0, 2]);
                 lines[i].end.X = (int)(rez.matrix[0, 0]/lines[i].we);
                 lines[i].end.Y = (int)(rez.matrix[0, 1] / lines[i].we);
-                
 
+                /*if (xneg)
+                {
+                    lines[i].end.X = Convert.ToInt32(("-" + lines[i].end.X.ToString()));
+                    xneg = false;
+                }
+                if (yneg)
+                {
+                    lines[i].end.Y = Convert.ToInt32(("-" + lines[i].end.Y.ToString()));
+                    yneg = false;
+                }
+
+                if (lines[i].start.X < 0)
+                {
+                    lines[i].start.X = Math.Abs(lines[i].start.X);
+                    xneg = true;
+                }
+                if (lines[i].start.Y < 0)
+                {
+                    lines[i].start.Y = Math.Abs(lines[i].start.Y);
+                    yneg = true;
+                }*/
 
                 rez = new Matrix(lines[i].start.X, lines[i].start.Y, lines[i].ws);
                 rez = rez.Multiple(T);
                 lines[i].ws = (int)(rez.matrix[0, 2]);
                 lines[i].start.X = (int)(rez.matrix[0, 0]/ lines[i].ws);
                 lines[i].start.Y = (int)(rez.matrix[0, 1]/ lines[i].ws);
-                
+
+                //if (xneg)
+                //{
+                //    lines[i].start.X = Convert.ToInt32(("-" + lines[i].start.X.ToString()));
+                //    xneg = false;
+                //}
+                //if (yneg)
+                //{
+                //    lines[i].start.Y = Convert.ToInt32(("-" + lines[i].start.Y.ToString()));
+                //    yneg = false;
+                //}
 
                 lines[i].start.X += _x;
                 lines[i].start.Y += _y;

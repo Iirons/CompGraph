@@ -439,8 +439,16 @@ namespace CGraphics1
         {
             Graphics g = Graphics.FromImage(ModelView.Image);
             //Drawing Curve
-
-            curve.lines = curve.GetCurve(a);
+            if (a != 0)
+            {
+                curve._a = a;
+                curve.lines = curve.GetCurve(a);
+            }
+            else
+            {
+                MessageBox.Show("Error. Wrong a value");
+                return;
+            }
 
             if (CurveAnimCheckBox.Checked)
             {
@@ -451,6 +459,50 @@ namespace CGraphics1
                 curve.Draw(g);
             }
             ModelView.Refresh();
+        }
+
+        private void TangentCurveButton_Click(object sender, EventArgs e)
+        {
+            if(TangentCurveTextBox.Text!= "" && Int32.TryParse(TangentCurveTextBox.Text, out int x))
+            {
+                try
+                {
+                    Point q = curve.FindPoint(x);
+                    Point p = new Point(q.X-curve._x,q.Y-curve._y);
+                    Graphics g = Graphics.FromImage(ModelView.Image);
+
+                    double der = -Math.Pow(curve._a, 3) * 2 * x / (Math.Pow((x * x + Math.Pow(curve._a, 2)), 2));
+
+                    curve.DrawTangentLine(p, der, g);
+                    ModelView.Refresh();
+                }
+                catch(Exception r)
+                {
+                    MessageBox.Show(r.Message);
+                }
+            }
+        }
+
+        private void NormalCurveButton_Click(object sender, EventArgs e)
+        {
+            if (NormalCurveTextBox.Text != "" && Int32.TryParse(NormalCurveTextBox.Text, out int x))
+            {
+                try
+                {
+                    Point q = curve.FindPoint(x);
+                    Point p = new Point(q.X - curve._x, q.Y - curve._y);
+                    Graphics g = Graphics.FromImage(ModelView.Image);
+
+                    double der = -Math.Pow(curve._a, 3) * 2 * x / (Math.Pow((x * x + Math.Pow(curve._a, 2)), 2));
+
+                    curve.DrawNormalLine(p, der, g);
+                    ModelView.Refresh();
+                }
+                catch (Exception r)
+                {
+                    MessageBox.Show(r.Message);
+                }
+            }
         }
     }
 }

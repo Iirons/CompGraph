@@ -34,6 +34,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.StartButton = new System.Windows.Forms.Button();
             this.SizesCheckBox = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.GridCheckBox = new System.Windows.Forms.CheckBox();
             this.R1box = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,9 +45,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.CurveAnimCheckBox = new System.Windows.Forms.CheckBox();
             this.CurveDrawButton = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.CurveATextBox = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TranslateButton = new System.Windows.Forms.Button();
             this.TrY = new System.Windows.Forms.TextBox();
@@ -117,24 +121,26 @@
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.CurveAnimCheckBox = new System.Windows.Forms.CheckBox();
+            this.TangentCurveButton = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.TangentCurveTextBox = new System.Windows.Forms.TextBox();
+            this.NormalCurveTextBox = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.NormalCurveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -224,6 +230,15 @@
             this.SizesCheckBox.Text = "Draw sizes";
             this.SizesCheckBox.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CGraphics1.Properties.Resources.njw_photo_resizer_ru;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(277, 265);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // GridCheckBox
             // 
             this.GridCheckBox.AutoSize = true;
@@ -306,6 +321,12 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.NormalCurveTextBox);
+            this.tabPage5.Controls.Add(this.label40);
+            this.tabPage5.Controls.Add(this.NormalCurveButton);
+            this.tabPage5.Controls.Add(this.TangentCurveTextBox);
+            this.tabPage5.Controls.Add(this.label39);
+            this.tabPage5.Controls.Add(this.TangentCurveButton);
             this.tabPage5.Controls.Add(this.CurveAnimCheckBox);
             this.tabPage5.Controls.Add(this.CurveDrawButton);
             this.tabPage5.Controls.Add(this.pictureBox3);
@@ -320,6 +341,18 @@
             this.tabPage5.Text = "Curve";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // CurveAnimCheckBox
+            // 
+            this.CurveAnimCheckBox.AutoSize = true;
+            this.CurveAnimCheckBox.Checked = true;
+            this.CurveAnimCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CurveAnimCheckBox.Location = new System.Drawing.Point(8, 242);
+            this.CurveAnimCheckBox.Name = "CurveAnimCheckBox";
+            this.CurveAnimCheckBox.Size = new System.Drawing.Size(64, 17);
+            this.CurveAnimCheckBox.TabIndex = 12;
+            this.CurveAnimCheckBox.Text = "Animate";
+            this.CurveAnimCheckBox.UseVisualStyleBackColor = true;
+            // 
             // CurveDrawButton
             // 
             this.CurveDrawButton.Location = new System.Drawing.Point(4, 580);
@@ -329,6 +362,15 @@
             this.CurveDrawButton.Text = "Draw Curve";
             this.CurveDrawButton.UseVisualStyleBackColor = true;
             this.CurveDrawButton.Click += new System.EventHandler(this.CurveDrawButton_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::CGraphics1.Properties.Resources.CurveFormulae;
+            this.pictureBox3.Location = new System.Drawing.Point(95, 148);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
             // 
             // CurveATextBox
             // 
@@ -346,6 +388,16 @@
             this.label38.Size = new System.Drawing.Size(16, 13);
             this.label38.TabIndex = 4;
             this.label38.Text = "a:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CGraphics1.Properties.Resources._512px_Witch_of_Agnesi_21;
+            this.pictureBox2.Location = new System.Drawing.Point(7, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(277, 136);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // tabPage2
             // 
@@ -1039,45 +1091,59 @@
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
             // 
-            // pictureBox1
+            // TangentCurveButton
             // 
-            this.pictureBox1.Image = global::CGraphics1.Properties.Resources.njw_photo_resizer_ru;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(277, 265);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.TangentCurveButton.Location = new System.Drawing.Point(171, 280);
+            this.TangentCurveButton.Name = "TangentCurveButton";
+            this.TangentCurveButton.Size = new System.Drawing.Size(75, 23);
+            this.TangentCurveButton.TabIndex = 13;
+            this.TangentCurveButton.Text = "Draw";
+            this.TangentCurveButton.UseVisualStyleBackColor = true;
+            this.TangentCurveButton.Click += new System.EventHandler(this.TangentCurveButton_Click);
             // 
-            // pictureBox3
+            // label39
             // 
-            this.pictureBox3.Image = global::CGraphics1.Properties.Resources.CurveFormulae;
-            this.pictureBox3.Location = new System.Drawing.Point(95, 148);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(7, 286);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(79, 13);
+            this.label39.TabIndex = 15;
+            this.label39.Text = "Tangent at x = ";
             // 
-            // pictureBox2
+            // TangentCurveTextBox
             // 
-            this.pictureBox2.Image = global::CGraphics1.Properties.Resources._512px_Witch_of_Agnesi_21;
-            this.pictureBox2.Location = new System.Drawing.Point(7, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(277, 136);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.TangentCurveTextBox.Location = new System.Drawing.Point(92, 283);
+            this.TangentCurveTextBox.Name = "TangentCurveTextBox";
+            this.TangentCurveTextBox.Size = new System.Drawing.Size(53, 20);
+            this.TangentCurveTextBox.TabIndex = 16;
+            this.TangentCurveTextBox.Text = "20";
             // 
-            // CurveAnimCheckBox
+            // NormalCurveTextBox
             // 
-            this.CurveAnimCheckBox.AutoSize = true;
-            this.CurveAnimCheckBox.Checked = true;
-            this.CurveAnimCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CurveAnimCheckBox.Location = new System.Drawing.Point(8, 242);
-            this.CurveAnimCheckBox.Name = "CurveAnimCheckBox";
-            this.CurveAnimCheckBox.Size = new System.Drawing.Size(64, 17);
-            this.CurveAnimCheckBox.TabIndex = 12;
-            this.CurveAnimCheckBox.Text = "Animate";
-            this.CurveAnimCheckBox.UseVisualStyleBackColor = true;
+            this.NormalCurveTextBox.Location = new System.Drawing.Point(92, 312);
+            this.NormalCurveTextBox.Name = "NormalCurveTextBox";
+            this.NormalCurveTextBox.Size = new System.Drawing.Size(53, 20);
+            this.NormalCurveTextBox.TabIndex = 19;
+            this.NormalCurveTextBox.Text = "20";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(7, 315);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(72, 13);
+            this.label40.TabIndex = 18;
+            this.label40.Text = "Normal at x = ";
+            // 
+            // NormalCurveButton
+            // 
+            this.NormalCurveButton.Location = new System.Drawing.Point(171, 309);
+            this.NormalCurveButton.Name = "NormalCurveButton";
+            this.NormalCurveButton.Size = new System.Drawing.Size(75, 23);
+            this.NormalCurveButton.TabIndex = 17;
+            this.NormalCurveButton.Text = "Draw";
+            this.NormalCurveButton.UseVisualStyleBackColor = true;
+            this.NormalCurveButton.Click += new System.EventHandler(this.NormalCurveButton_Click);
             // 
             // MainForm
             // 
@@ -1100,8 +1166,11 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -1110,9 +1179,6 @@
             this.tabPage4.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1213,6 +1279,12 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button CurveDrawButton;
         private System.Windows.Forms.CheckBox CurveAnimCheckBox;
+        private System.Windows.Forms.TextBox TangentCurveTextBox;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button TangentCurveButton;
+        private System.Windows.Forms.TextBox NormalCurveTextBox;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Button NormalCurveButton;
     }
 }
 
