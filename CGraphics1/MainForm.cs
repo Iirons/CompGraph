@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CGraphics1.Lab1;
+using CGraphics1.Labs;
 using CGraphics1.Types;
 
 namespace CGraphics1
@@ -22,10 +23,15 @@ namespace CGraphics1
             InitializeComponent();
 
         }
+        
+        Lab2 lab2;
+        Lab3 lab3;
 
         List<Drawing> alldrawings = new List<Drawing>();
+        Curve curve = new Curve();
         Drawing drawing = new Drawing();
         Drawing gridandaxis = new Drawing();
+        Validation val = new Validation();
 
         private PictureBox ModelView = new PictureBox();
         // Cache font instead of recreating font objects each time we paint.
@@ -45,14 +51,19 @@ namespace CGraphics1
 
             GetAxisAndGrid();
             DrawAxisAndGrid();
+
+            lab3 = new Lab3(ModelView);
         }
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            if (CheckParams())
+            if (val.CheckDrawingParams(R1box.Text, R2box.Text, R3box.Text, Abox.Text))
             {
                 ModelView.Image = new Bitmap(ModelView.Width, ModelView.Height);
+                gridandaxis = new Drawing();
+                GetAxisAndGrid();
                 DrawAxisAndGrid();
+                curve = new Curve();
                 drawing = new Drawing();
                 DrawModel();
             }
@@ -73,7 +84,8 @@ namespace CGraphics1
 
         private void GetAxisAndGrid()
         {
-
+            const int range = 300;
+            
             // Draw Axis
             Pen arrow_pen = new Pen(Brushes.Black, 3);
 
@@ -88,30 +100,13 @@ namespace CGraphics1
 
             Point p1 = new Point(70, 15), p2 = new Point(70, 25),
                 p3 = new Point(15, 70), p4 = new Point(25, 70),
-                p5 = new Point(0, 20), p6 = new Point(ModelView.Right, 20),
-                p7 = new Point(20, 0), p8 = new Point(20, ModelView.Bottom),
+                p5 = new Point(-range, 20), p6 = new Point(ModelView.Right, 20),
+                p7 = new Point(20, -range), p8 = new Point(20, ModelView.Bottom),
                 p9 = new Point(70, 5),
                 p10 = new Point(5, 70);
 
-            //drawing.gridandaxis.Add(p1);
-            //drawing.gridandaxis.Add(p2);
-            //drawing.gridandaxis.Add(p3);
-            //drawing.gridandaxis.Add(p4);
-            //drawing.AxisX0 = p5;
-            //drawing.AxisXN = p6;
-            //drawing.AxisY0 = p7;
-            //drawing.AxisYN = p8;
-            //drawing.size1 = p9;
-            //drawing.size2 = p10;
-
             gridandaxis.lines.Add(new Line(new Pen(Brushes.Black, 1), p1, p2));
             gridandaxis.lines.Add(new Line(new Pen(Brushes.Black, 1), p3, p4));
-            
-            //g.DrawLine(new Pen(Brushes.Black, 1), p1, p2);
-            //g.DrawLine(new Pen(Brushes.Black, 1), p3, p4);
-
-            //g.DrawString("50", fnt, Brushes.Black, p9);
-            //g.DrawString("50", fnt, Brushes.Black, p10);
 
             gridandaxis.textpoints.Add(new TextPoint("50", p9));
             gridandaxis.textpoints.Add(new TextPoint("50", p10));
@@ -120,47 +115,20 @@ namespace CGraphics1
             gridandaxis.lines.Add(new Line(arrow_pen, p5, p6));
             gridandaxis.lines.Add(new Line(arrow_pen, p7, p8));
 
-            //g.DrawLine(arrow_pen, p5, p6);
-            //g.DrawLine(arrow_pen, p7, p8);
-
             //Draw Grid
             if (GridCheckBox.Checked)
             {
-                for (int i = 20; i <= ModelView.Right; i += 50)
+                for (int i = 20-range; i <= ModelView.Right; i += 50)
                 {
-                    //drawing.gridandaxis.Add(new Point(i, ModelView.Top));
-                    //drawing.gridandaxis.Add(new Point(i, ModelView.Bottom));
-                    //g.DrawLine(new Pen(Color.FromArgb(50, 0, 0, 0), 1), 
-                    //    new Point(i, ModelView.Top), new Point(i, ModelView.Bottom));
-
                     gridandaxis.lines.Add(new Line(new Pen(Color.FromArgb(50, 0, 0, 0), 1),
-                            new Point(i, ModelView.Top), new Point(i, ModelView.Bottom)));
+                            new Point(i, ModelView.Top-range), new Point(i, ModelView.Bottom)));
                 }
-                for (int i = 20; i <= ModelView.Bottom; i += 50)
+                for (int i = 20-range; i <= ModelView.Bottom; i += 50)
                 {
-                    //drawing.gridandaxis.Add(new Point(ModelView.Left, i));
-                    //drawing.gridandaxis.Add(new Point(ModelView.Right, i));
-                    //g.DrawLine(new Pen(Color.FromArgb(50, 0, 0, 0), 1), 
-                    //    new Point(ModelView.Left, i), new Point(ModelView.Right, i));
-
                     gridandaxis.lines.Add(new Line(new Pen(Color.FromArgb(50, 0, 0, 0), 1),
-                          new Point(ModelView.Left, i), new Point(ModelView.Right, i)));
+                          new Point(ModelView.Left-range, i), new Point(ModelView.Right, i)));
                 }
             }
-        }
-
-        private bool CheckParams()
-        {
-            if (R1box.Text == "" || R2box.Text == "" || R3box.Text == "" || Abox.Text == "")
-            {
-                return false;
-            }
-            if(!Int32.TryParse(R1box.Text, out int r1) ||
-            !Int32.TryParse(R2box.Text, out int r2) ||
-            !Int32.TryParse(R3box.Text, out int r3) ||
-            !Int32.TryParse(Abox.Text, out int a)||
-            r1 >= r2 || a <= r3 + 20 || r1 <= 5 || r2 <= 5 || r3 <= 5 || a <= 0) { return false; }
-            return true;
         }
 
         private void DrawModel()
@@ -246,12 +214,6 @@ namespace CGraphics1
             drawing.lines.Add(new Line(dashed_pen, new Point(center.X - a - r3 - 5, center.Y)
                 , new Point(center.X + a + r3 + 5, center.Y)));
 
-            //g.DrawLine(dashed_pen,new Point(center.X, center.Y - a - r3 - 5),
-            //new Point(center.X, center.Y + a + r3 + 5));
-
-            //g.DrawLine(dashed_pen, new Point(center.X - a - r3 - 5, center.Y),
-            //new Point(center.X + a + r3 + 5, center.Y));
-
             drawing.Draw(g);
 
             //Drawing sizes
@@ -321,32 +283,13 @@ namespace CGraphics1
         {
             ModelView.Image = new Bitmap(ModelView.Width, ModelView.Height);
             gridandaxis = new Drawing();
+            drawing = new Drawing();
+            curve = new Curve();
             GetAxisAndGrid();
             DrawAxisAndGrid();
         }
 
-        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)//ScaleButton
-        {
-            ModelView.Image = new Bitmap(ModelView.Width, ModelView.Height);
-            Graphics g = Graphics.FromImage(ModelView.Image);
-            DrawAxisAndGrid();
-            Types.Matrix matrix = new Types.Matrix(Convert.ToDouble(ScX.Text), 0, 0,
-                0, Convert.ToDouble(ScY.Text), 0, 
-                0, 0, 1);
-            drawing.Transform(matrix);
-            drawing.Draw(g);
-            ModelView.Refresh();
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
+        //lab1
 
         private void RotateOzButton_Click(object sender, EventArgs e)
         {
@@ -354,10 +297,14 @@ namespace CGraphics1
             Graphics g = Graphics.FromImage(ModelView.Image);
             DrawAxisAndGrid();
             double angle = Convert.ToInt32(RtAngOz.Text)*Math.PI/180;
-            drawing.Transform(new Types.Matrix(Math.Cos(angle), Math.Sin(angle), 0,
+            Types.Matrix matrix = new Types.Matrix(Math.Cos(angle), Math.Sin(angle), 0,
                 -Math.Sin(angle), Math.Cos(angle), 0,
-                0, 0, 1));
+                0, 0, 1);
+            drawing.Transform(matrix);
             drawing.Draw(g);
+            curve.Transform(matrix);
+            curve.Draw(g);
+
             ModelView.Refresh();
         }
 
@@ -380,6 +327,8 @@ namespace CGraphics1
                 x, y, 1));
             drawing.Transform(matrix);
             drawing.Draw(g);
+            curve.Transform(matrix);
+            curve.Draw(g);
             ModelView.Refresh();
         }
 
@@ -395,6 +344,8 @@ namespace CGraphics1
                 x, y, 1);
             drawing.Transform(matrix);
             drawing.Draw(g);
+            curve.Transform(matrix);
+            curve.Draw(g);
             ModelView.Refresh();
         }
 
@@ -413,6 +364,24 @@ namespace CGraphics1
                 x0, y0, 1);
             drawing.Transform(matrix);
             gridandaxis.Transform(matrix);
+            curve.Transform(matrix);
+            curve.Draw(g);
+            DrawAxisAndGrid();
+            drawing.Draw(g);
+            ModelView.Refresh();
+        }
+
+        private void button2_Click(object sender, EventArgs e)//ScaleButton
+        {
+            ModelView.Image = new Bitmap(ModelView.Width, ModelView.Height);
+            Graphics g = Graphics.FromImage(ModelView.Image);
+            Types.Matrix matrix = new Types.Matrix(Convert.ToDouble(ScX.Text), 0, 0,
+                0, Convert.ToDouble(ScY.Text), 0,
+                0, 0, 1);
+            drawing.Transform(matrix);
+            gridandaxis.Transform(matrix);
+            curve.Transform(matrix);
+            curve.Draw(g);
             DrawAxisAndGrid();
             drawing.Draw(g);
             ModelView.Refresh();
@@ -436,9 +405,127 @@ namespace CGraphics1
                 x0*w0, y0*w0, w0);
             drawing.Transform(matrix);
             gridandaxis.Transform(matrix);
+            curve.Transform(matrix);
+            curve.Draw(g);
             DrawAxisAndGrid();
             drawing.Draw(g);
             ModelView.Refresh();
+        }
+
+
+        //lab2
+
+        
+        private void CurveDrawButton_Click(object sender, EventArgs e)
+        {
+            int a = 0;
+            if (val.CheckCurveParams(CurveATextBox.Text, ref a))
+            {
+                ModelView.Image = new Bitmap(ModelView.Width, ModelView.Height);
+                gridandaxis = new Drawing();
+                GetAxisAndGrid();
+                Types.Matrix matrix = new Types.Matrix(1, 0, 0,
+                    0, 1, 0,
+                    300, 250, 1);
+                gridandaxis.Transform(matrix);
+                DrawAxisAndGrid();
+                gridandaxis._x = 320;
+                gridandaxis._y = 270;
+                drawing = new Drawing();
+                curve = new Curve();
+                DrawCurve(a);
+            }
+            else
+            {
+                MessageBox.Show("Incorrect values", "Error");
+            }
+        }
+
+        private void DrawCurve(int a)
+        {
+            Graphics g = Graphics.FromImage(ModelView.Image);
+            //Drawing Curve
+            if (a != 0)
+            {
+                curve._a = a;
+                curve.lines = curve.GetCurve(a);
+            }
+            else
+            {
+                MessageBox.Show("Error. Wrong a value");
+                return;
+            }
+
+            if (CurveAnimCheckBox.Checked)
+            {
+                curve.DrawAnim(g, ModelView);
+            }
+            else
+            {
+                curve.Draw(g);
+            }
+            ModelView.Refresh();
+        }
+
+        private void TangentCurveButton_Click(object sender, EventArgs e)
+        {
+            if(TangentCurveTextBox.Text!= "" && Int32.TryParse(TangentCurveTextBox.Text, out int x))
+            {
+                try
+                {
+                    Point q = curve.FindPoint(x);
+                    Point p = new Point(q.X-curve._x,q.Y-curve._y);
+                    Graphics g = Graphics.FromImage(ModelView.Image);
+
+                    double der = -Math.Pow(curve._a, 3) * 2 * x / (Math.Pow((x * x + Math.Pow(curve._a, 2)), 2));
+
+                    curve.DrawTangentLine(p, der, g);
+                    ModelView.Refresh();
+                }
+                catch(Exception r)
+                {
+                    MessageBox.Show(r.Message);
+                }
+            }
+        }
+
+        private void NormalCurveButton_Click(object sender, EventArgs e)
+        {
+            if (NormalCurveTextBox.Text != "" && Int32.TryParse(NormalCurveTextBox.Text, out int x))
+            {
+                try
+                {
+                    Point q = curve.FindPoint(x);
+                    Point p = new Point(q.X - curve._x, q.Y - curve._y);
+                    Graphics g = Graphics.FromImage(ModelView.Image);
+
+                    double der = -Math.Pow(curve._a, 3) * 2 * x / (Math.Pow((x * x + Math.Pow(curve._a, 2)), 2));
+
+                    curve.DrawNormalLine(p, der, g);
+                    ModelView.Refresh();
+                }
+                catch (Exception r)
+                {
+                    MessageBox.Show(r.Message);
+                }
+            }
+        }
+
+        //Lab3
+
+        private void DrawContourButton_Click(object sender, EventArgs e)
+        {
+            lab3.Test();
+        }
+
+        private void ChangeContourButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditContourButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

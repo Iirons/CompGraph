@@ -13,15 +13,16 @@ namespace CGraphics1.Lab1
 {
     public class Drawing
     {
+        public int _x = 20, _y = 20;
+
         public Drawing()
         {
-
         }
 
         public List<Line> lines = new List<Line>();
 
         public List<TextPoint> textpoints = new List<TextPoint>();
-        
+
         public List<Line> GetCircle(Point c, int R, double angle1, double angle2)
         {
             List<Line> rez = new List<Line>();
@@ -65,7 +66,6 @@ namespace CGraphics1.Lab1
         {
             foreach(Line l in lines)
             {
-                
                 l.Draw(g);
             }
 
@@ -73,185 +73,113 @@ namespace CGraphics1.Lab1
             {
                 txt.Draw(g);
             }
-            //for (int i = 0; i < circle1.Count - 1; i++)
-            //{
-            //    g.DrawLine(simple_pen, circle1[i], circle1[i + 1]);
-            //}
-            //for (int i = 0; i < circle2.Count - 1; i++)
-            //{
-            //    g.DrawLine(simple_pen, circle2[i], circle2[i + 1]);
-            //}
-
-            //for (int i = 0; i < arc1.Count - 1; i++)
-            //{
-            //    g.DrawLine(simple_pen, arc1[i], arc1[i + 1]);
-            //}
-            //for (int i = 0; i < arc2.Count - 1; i++)
-            //{
-            //    g.DrawLine(simple_pen, arc2[i], arc2[i + 1]);
-            //}
-            //for (int i = 0; i < arc3.Count - 1; i++)
-            //{
-            //    g.DrawLine(simple_pen, arc3[i], arc3[i + 1]);
-            //}
-            //for (int i = 0; i < arc4.Count - 1; i++)
-            //{
-            //    g.DrawLine(simple_pen, arc4[i], arc4[i + 1]);
-            //}
-
-            //g.DrawLine(simple_pen, p1, p2);
-            //g.DrawLine(simple_pen, p3, p4);
-            //g.DrawLine(simple_pen, p5, p6);
-            //g.DrawLine(simple_pen, p7, p8);
-
-            //g.DrawLine(simple_pen, p1, p5);
-            //g.DrawLine(simple_pen, p6, p3);
-            //g.DrawLine(simple_pen, p4, p8);
-            //g.DrawLine(simple_pen, p7, p2);
-
-            //g.DrawLine(simple_pen, p5, p9);
-            //g.DrawLine(simple_pen, p6, p9);
-
-            //g.DrawLine(simple_pen, p3, p10);
-            //g.DrawLine(simple_pen, p4, p10);
-
-            //g.DrawLine(simple_pen, p7, p11);
-            //g.DrawLine(simple_pen, p8, p11);
-
-            //g.DrawLine(simple_pen, p1, p12);
-            //g.DrawLine(simple_pen, p2, p12);
-
-            //Drawing axis for circles
-            //g.DrawLine(dashed_pen, AxisP1, AxisP2);
-
-            //g.DrawLine(dashed_pen, AxisP3, AxisP4);
         }
 
-        //public void DrawGridAndAxis(Graphics g)
-        //{
-        //    //g.DrawString("50", fnt, Brushes.Black, size1);
-        //    //g.DrawString("50", fnt, Brushes.Black, size2);
-        //    //g.DrawLine(arrow_pen, AxisX0, AxisXN);
+        public void DrawAnim(Graphics g,PictureBox modelview)
+        {
+            foreach (Line l in lines)
+            {
+                l.Draw(g);
+                modelview.Refresh();
+            }
 
-        //    //g.DrawLine(arrow_pen, AxisY0, AxisYN);
-        //    //for (int i= 0; i < gridandaxis.Count - 1; i += 2)
-        //    //{
-        //    //    g.DrawLine(new Pen(Color.FromArgb(50, 0, 0, 0), 1), gridandaxis[i], gridandaxis[i + 1]);
-        //    //}
-        //}
+            foreach (TextPoint txt in textpoints)
+            {
+                txt.Draw(g);
+            }
+        }
 
         public void Transform(Matrix T)
         {
+            bool xneg, yneg;
             Matrix rez;
             for (int i = 0; i < lines.Count; i++)
             {
-                lines[i].start.X -= 20;
-                lines[i].start.Y -= 20;
-                lines[i].end.X -= 20;
-                lines[i].end.Y -= 20;
+                xneg = false;
+                yneg = false;
+                lines[i].start.X -= _x;
+                lines[i].start.Y -= _y;
+                lines[i].end.X -= _x;
+                lines[i].end.Y -= _y;
+
+                /*if (lines[i].end.X < 0)
+                //{
+                //    lines[i].end.X = Math.Abs(lines[i].end.X);
+                //    xneg = true;
+                //}
+                //if (lines[i].end.Y < 0)
+                //{
+                //    lines[i].end.Y = Math.Abs(lines[i].end.Y);
+                //    yneg = true;
+                //}*/
 
                 rez = new Matrix(lines[i].end.X, lines[i].end.Y, lines[i].we);
                 rez = rez.Multiple(T);
-                lines[i].we = Convert.ToInt32(rez.matrix[0, 2]);
-                lines[i].end.X = Convert.ToInt32(rez.matrix[0, 0]/lines[i].we);
-                lines[i].end.Y = Convert.ToInt32(rez.matrix[0, 1] / lines[i].we);
-                
+                lines[i].we = (int)(rez.matrix[0, 2]);
+                lines[i].end.X = (int)(rez.matrix[0, 0]/lines[i].we);
+                lines[i].end.Y = (int)(rez.matrix[0, 1] / lines[i].we);
 
+                /*if (xneg)
+                {
+                    lines[i].end.X = Convert.ToInt32(("-" + lines[i].end.X.ToString()));
+                    xneg = false;
+                }
+                if (yneg)
+                {
+                    lines[i].end.Y = Convert.ToInt32(("-" + lines[i].end.Y.ToString()));
+                    yneg = false;
+                }
+
+                if (lines[i].start.X < 0)
+                {
+                    lines[i].start.X = Math.Abs(lines[i].start.X);
+                    xneg = true;
+                }
+                if (lines[i].start.Y < 0)
+                {
+                    lines[i].start.Y = Math.Abs(lines[i].start.Y);
+                    yneg = true;
+                }*/
 
                 rez = new Matrix(lines[i].start.X, lines[i].start.Y, lines[i].ws);
                 rez = rez.Multiple(T);
-                lines[i].ws = Convert.ToInt32(rez.matrix[0, 2]);
-                lines[i].start.X = Convert.ToInt32(rez.matrix[0, 0]/ lines[i].ws);
-                lines[i].start.Y = Convert.ToInt32(rez.matrix[0, 1]/ lines[i].ws);
-                
+                lines[i].ws = (int)(rez.matrix[0, 2]);
+                lines[i].start.X = (int)(rez.matrix[0, 0]/ lines[i].ws);
+                lines[i].start.Y = (int)(rez.matrix[0, 1]/ lines[i].ws);
 
-                lines[i].start.X += 20;
-                lines[i].start.Y += 20;
-                lines[i].end.X += 20;
-                lines[i].end.Y += 20;
+                //if (xneg)
+                //{
+                //    lines[i].start.X = Convert.ToInt32(("-" + lines[i].start.X.ToString()));
+                //    xneg = false;
+                //}
+                //if (yneg)
+                //{
+                //    lines[i].start.Y = Convert.ToInt32(("-" + lines[i].start.Y.ToString()));
+                //    yneg = false;
+                //}
+
+                lines[i].start.X += _x;
+                lines[i].start.Y += _y;
+                lines[i].end.X += _x;
+                lines[i].end.Y += _y;
 
             }
 
             foreach (TextPoint p in textpoints)
             {
-                p.point.X -= 20;
-                p.point.Y -= 20;
+                p.point.X -= _x;
+                p.point.Y -= _y;
 
                 rez = new Matrix(p.point.X, p.point.Y, p.w);
                 rez = rez.Multiple(T);
-                p.point.X = Convert.ToInt32(rez.matrix[0, 0]);
-                p.point.Y = Convert.ToInt32(rez.matrix[0, 1]);
-                p.w = Convert.ToInt32(rez.matrix[0, 2]);
+                p.point.X = (int)(rez.matrix[0, 0]);
+                p.point.Y = (int)(rez.matrix[0, 1]);
+                p.w = (int)(rez.matrix[0, 2]);
 
-                p.point.X += 20;
-                p.point.Y += 20;
+                p.point.X += _x;
+                p.point.Y += _y;
             }
-
-            /*Point[] ar = circle1.ToArray();
-            T.TransformPoints(ar);
-            circle1 = ar.ToList();
-
-            Point[] ar1 = circle2.ToArray();
-            T.TransformPoints(ar1);
-            circle2 = ar1.ToList();
-
-            Point[] ar2 = arc1.ToArray();
-            T.TransformPoints(ar2);
-            arc1 = ar2.ToList();
-
-            Point[] ar3 = arc2.ToArray();
-            T.TransformPoints(ar3);
-            arc2 = ar3.ToList();
-
-            Point[] ar4 = arc3.ToArray();
-            T.TransformPoints(ar4);
-            arc3 = ar4.ToList();
-
-            Point[] ar5 = arc4.ToArray();
-            T.TransformPoints(ar5);
-            arc4 = ar5.ToList();
-
-            Point[] ar6 = {
-                p1,
-                p2,
-                p3,
-                p4,
-                p5,
-                p6,
-                p7,
-                p8,
-                p9,
-                p10,
-                p11,
-                p12
-            };
-            T.TransformPoints(ar6);
-            p1 = ar6[0];
-            p2 = ar6[1];
-            p3 = ar6[2];
-            p4 = ar6[3];
-            p5 = ar6[4];
-            p6 = ar6[5];
-            p7 = ar6[6];
-            p8 = ar6[7];
-            p9 = ar6[8];
-            p10 = ar6[9];
-            p11 = ar6[10];
-            p12 = ar6[11];
-
-            g.Clear(Color.White);
-            DrawGridAndAxis(g);
-
-            DrawModel(g);*/
+            
         }
-
-        //public void AffineTransform(Matrix T)
-        //{
-        //}
-
-        //public void ProjectiveTransform(Matrix T)
-        //{
-
-        //}
     }
 }

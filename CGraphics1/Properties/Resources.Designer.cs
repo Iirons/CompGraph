@@ -63,6 +63,36 @@ namespace CGraphics1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _512px_Witch_of_Agnesi_2_svg {
+            get {
+                object obj = ResourceManager.GetObject("512px-Witch_of_Agnesi_2.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _512px_Witch_of_Agnesi_21 {
+            get {
+                object obj = ResourceManager.GetObject("512px-Witch_of_Agnesi_21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CurveFormulae {
+            get {
+                object obj = ResourceManager.GetObject("CurveFormulae", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap njw {
             get {
                 object obj = ResourceManager.GetObject("njw", resourceCulture);
@@ -76,6 +106,36 @@ namespace CGraphics1.Properties {
         internal static System.Drawing.Bitmap njw_photo_resizer_ru {
             get {
                 object obj = ResourceManager.GetObject("njw_photo-resizer.ru", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VerzFormulae {
+            get {
+                object obj = ResourceManager.GetObject("VerzFormulae", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Witch_of_Agnesi_2_svg {
+            get {
+                object obj = ResourceManager.GetObject("Witch_of_Agnesi_2.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Witch_of_Agnesi_21 {
+            get {
+                object obj = ResourceManager.GetObject("Witch_of_Agnesi_21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
