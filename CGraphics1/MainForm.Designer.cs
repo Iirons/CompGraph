@@ -44,6 +44,12 @@
             this.Abox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.ContourTab = new System.Windows.Forms.TabPage();
+            this.EditContourButton = new System.Windows.Forms.Button();
+            this.ChangeContourButton = new System.Windows.Forms.Button();
+            this.DrawContourButton = new System.Windows.Forms.Button();
+            this.SmoothCheckBox = new System.Windows.Forms.CheckBox();
+            this.ContourDataGridView = new System.Windows.Forms.DataGridView();
             this.CurveTab = new System.Windows.Forms.TabPage();
             this.NormalCurveTextBox = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
@@ -122,18 +128,15 @@
             this.PrRx1X = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.PrTransform = new System.Windows.Forms.Button();
+            this.EditTab = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ContourTab = new System.Windows.Forms.TabPage();
-            this.EditTab = new System.Windows.Forms.TabPage();
-            this.ContourDataGridView = new System.Windows.Forms.DataGridView();
-            this.SmoothCheckBox = new System.Windows.Forms.CheckBox();
-            this.DrawContourButton = new System.Windows.Forms.Button();
-            this.ChangeContourButton = new System.Windows.Forms.Button();
-            this.EditContourButton = new System.Windows.Forms.Button();
+            this.DrawCurveB3Button = new System.Windows.Forms.Button();
+            this.getContourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveContourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -141,6 +144,8 @@
             this.tabControl1.SuspendLayout();
             this.DrawingTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ContourTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ContourDataGridView)).BeginInit();
             this.CurveTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -148,8 +153,6 @@
             this.AffineTab.SuspendLayout();
             this.ProjectionTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.ContourTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ContourDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -329,6 +332,74 @@
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "R3 :";
+            // 
+            // ContourTab
+            // 
+            this.ContourTab.Controls.Add(this.DrawCurveB3Button);
+            this.ContourTab.Controls.Add(this.EditContourButton);
+            this.ContourTab.Controls.Add(this.ChangeContourButton);
+            this.ContourTab.Controls.Add(this.DrawContourButton);
+            this.ContourTab.Controls.Add(this.SmoothCheckBox);
+            this.ContourTab.Controls.Add(this.ContourDataGridView);
+            this.ContourTab.Location = new System.Drawing.Point(4, 22);
+            this.ContourTab.Name = "ContourTab";
+            this.ContourTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ContourTab.Size = new System.Drawing.Size(290, 618);
+            this.ContourTab.TabIndex = 5;
+            this.ContourTab.Text = "Contour";
+            this.ContourTab.UseVisualStyleBackColor = true;
+            // 
+            // EditContourButton
+            // 
+            this.EditContourButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.EditContourButton.Location = new System.Drawing.Point(3, 546);
+            this.EditContourButton.Name = "EditContourButton";
+            this.EditContourButton.Size = new System.Drawing.Size(284, 23);
+            this.EditContourButton.TabIndex = 4;
+            this.EditContourButton.Text = "Confirm Edit";
+            this.EditContourButton.UseVisualStyleBackColor = true;
+            this.EditContourButton.Click += new System.EventHandler(this.EditContourButton_Click);
+            // 
+            // ChangeContourButton
+            // 
+            this.ChangeContourButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ChangeContourButton.Location = new System.Drawing.Point(3, 569);
+            this.ChangeContourButton.Name = "ChangeContourButton";
+            this.ChangeContourButton.Size = new System.Drawing.Size(284, 23);
+            this.ChangeContourButton.TabIndex = 3;
+            this.ChangeContourButton.Text = "Transform into smth";
+            this.ChangeContourButton.UseVisualStyleBackColor = true;
+            this.ChangeContourButton.Click += new System.EventHandler(this.ChangeContourButton_Click);
+            // 
+            // DrawContourButton
+            // 
+            this.DrawContourButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DrawContourButton.Location = new System.Drawing.Point(3, 592);
+            this.DrawContourButton.Name = "DrawContourButton";
+            this.DrawContourButton.Size = new System.Drawing.Size(284, 23);
+            this.DrawContourButton.TabIndex = 2;
+            this.DrawContourButton.Text = "Draw";
+            this.DrawContourButton.UseVisualStyleBackColor = true;
+            this.DrawContourButton.Click += new System.EventHandler(this.DrawContourButton_Click);
+            // 
+            // SmoothCheckBox
+            // 
+            this.SmoothCheckBox.AutoSize = true;
+            this.SmoothCheckBox.Location = new System.Drawing.Point(7, 499);
+            this.SmoothCheckBox.Name = "SmoothCheckBox";
+            this.SmoothCheckBox.Size = new System.Drawing.Size(62, 17);
+            this.SmoothCheckBox.TabIndex = 1;
+            this.SmoothCheckBox.Text = "Smooth";
+            this.SmoothCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // ContourDataGridView
+            // 
+            this.ContourDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ContourDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ContourDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.ContourDataGridView.Name = "ContourDataGridView";
+            this.ContourDataGridView.Size = new System.Drawing.Size(284, 490);
+            this.ContourDataGridView.TabIndex = 0;
             // 
             // CurveTab
             // 
@@ -1118,6 +1189,15 @@
             this.PrTransform.UseVisualStyleBackColor = true;
             this.PrTransform.Click += new System.EventHandler(this.PrTransform_Click);
             // 
+            // EditTab
+            // 
+            this.EditTab.Location = new System.Drawing.Point(4, 22);
+            this.EditTab.Name = "EditTab";
+            this.EditTab.Size = new System.Drawing.Size(290, 618);
+            this.EditTab.TabIndex = 6;
+            this.EditTab.Text = "Edit";
+            this.EditTab.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(14, 12);
@@ -1138,6 +1218,9 @@
             // 
             // FileToolStripMenuItem
             // 
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.getContourToolStripMenuItem,
+            this.saveContourToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.FileToolStripMenuItem.Text = "File";
@@ -1153,84 +1236,33 @@
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
             // 
-            // ContourTab
+            // DrawCurveB3Button
             // 
-            this.ContourTab.Controls.Add(this.EditContourButton);
-            this.ContourTab.Controls.Add(this.ChangeContourButton);
-            this.ContourTab.Controls.Add(this.DrawContourButton);
-            this.ContourTab.Controls.Add(this.SmoothCheckBox);
-            this.ContourTab.Controls.Add(this.ContourDataGridView);
-            this.ContourTab.Location = new System.Drawing.Point(4, 22);
-            this.ContourTab.Name = "ContourTab";
-            this.ContourTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ContourTab.Size = new System.Drawing.Size(290, 618);
-            this.ContourTab.TabIndex = 5;
-            this.ContourTab.Text = "Contour";
-            this.ContourTab.UseVisualStyleBackColor = true;
+            this.DrawCurveB3Button.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DrawCurveB3Button.Location = new System.Drawing.Point(3, 523);
+            this.DrawCurveB3Button.Name = "DrawCurveB3Button";
+            this.DrawCurveB3Button.Size = new System.Drawing.Size(284, 23);
+            this.DrawCurveB3Button.TabIndex = 5;
+            this.DrawCurveB3Button.Text = "Draw Curve";
+            this.DrawCurveB3Button.UseVisualStyleBackColor = true;
+            this.DrawCurveB3Button.Click += new System.EventHandler(this.DrawCurveB3Button_Click);
             // 
-            // EditTab
+            // getContourToolStripMenuItem
             // 
-            this.EditTab.Location = new System.Drawing.Point(4, 22);
-            this.EditTab.Name = "EditTab";
-            this.EditTab.Size = new System.Drawing.Size(290, 618);
-            this.EditTab.TabIndex = 6;
-            this.EditTab.Text = "Edit";
-            this.EditTab.UseVisualStyleBackColor = true;
+            this.getContourToolStripMenuItem.Name = "getContourToolStripMenuItem";
+            this.getContourToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.getContourToolStripMenuItem.Text = "Get Contour";
+            this.getContourToolStripMenuItem.Click += new System.EventHandler(this.getContourToolStripMenuItem_Click);
             // 
-            // ContourDataGridView
+            // saveContourToolStripMenuItem
             // 
-            this.ContourDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ContourDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ContourDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.ContourDataGridView.Name = "ContourDataGridView";
-            this.ContourDataGridView.Size = new System.Drawing.Size(284, 517);
-            this.ContourDataGridView.TabIndex = 0;
-            // 
-            // SmoothCheckBox
-            // 
-            this.SmoothCheckBox.AutoSize = true;
-            this.SmoothCheckBox.Location = new System.Drawing.Point(6, 526);
-            this.SmoothCheckBox.Name = "SmoothCheckBox";
-            this.SmoothCheckBox.Size = new System.Drawing.Size(62, 17);
-            this.SmoothCheckBox.TabIndex = 1;
-            this.SmoothCheckBox.Text = "Smooth";
-            this.SmoothCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // DrawContourButton
-            // 
-            this.DrawContourButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DrawContourButton.Location = new System.Drawing.Point(3, 592);
-            this.DrawContourButton.Name = "DrawContourButton";
-            this.DrawContourButton.Size = new System.Drawing.Size(284, 23);
-            this.DrawContourButton.TabIndex = 2;
-            this.DrawContourButton.Text = "Draw";
-            this.DrawContourButton.UseVisualStyleBackColor = true;
-            this.DrawContourButton.Click += new System.EventHandler(this.DrawContourButton_Click);
-            // 
-            // ChangeContourButton
-            // 
-            this.ChangeContourButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ChangeContourButton.Location = new System.Drawing.Point(3, 569);
-            this.ChangeContourButton.Name = "ChangeContourButton";
-            this.ChangeContourButton.Size = new System.Drawing.Size(284, 23);
-            this.ChangeContourButton.TabIndex = 3;
-            this.ChangeContourButton.Text = "Transform into smth";
-            this.ChangeContourButton.UseVisualStyleBackColor = true;
-            this.ChangeContourButton.Click += new System.EventHandler(this.ChangeContourButton_Click);
-            // 
-            // EditContourButton
-            // 
-            this.EditContourButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.EditContourButton.Location = new System.Drawing.Point(3, 546);
-            this.EditContourButton.Name = "EditContourButton";
-            this.EditContourButton.Size = new System.Drawing.Size(284, 23);
-            this.EditContourButton.TabIndex = 4;
-            this.EditContourButton.Text = "Confirm Edit";
-            this.EditContourButton.UseVisualStyleBackColor = true;
-            this.EditContourButton.Click += new System.EventHandler(this.EditContourButton_Click);
+            this.saveContourToolStripMenuItem.Name = "saveContourToolStripMenuItem";
+            this.saveContourToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveContourToolStripMenuItem.Text = "Save Contour";
+            this.saveContourToolStripMenuItem.Click += new System.EventHandler(this.saveContourToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1254,6 +1286,9 @@
             this.DrawingTab.ResumeLayout(false);
             this.DrawingTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ContourTab.ResumeLayout(false);
+            this.ContourTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ContourDataGridView)).EndInit();
             this.CurveTab.ResumeLayout(false);
             this.CurveTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1266,9 +1301,6 @@
             this.ProjectionTab.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.ContourTab.ResumeLayout(false);
-            this.ContourTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ContourDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1382,6 +1414,9 @@
         private System.Windows.Forms.CheckBox SmoothCheckBox;
         private System.Windows.Forms.DataGridView ContourDataGridView;
         private System.Windows.Forms.Button EditContourButton;
+        private System.Windows.Forms.Button DrawCurveB3Button;
+        private System.Windows.Forms.ToolStripMenuItem getContourToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveContourToolStripMenuItem;
     }
 }
 

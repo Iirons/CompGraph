@@ -12,8 +12,8 @@ namespace CGraphics1.Labs
 {
     public class Lab3
     {
-        Contour plane = new Contour();
-        Contour planeto = new Contour();
+        public Contour plane = new Contour();
+        public Contour planeto = new Contour();
         private PictureBox ModelView = new PictureBox();
 
         public Lab3()
@@ -28,7 +28,29 @@ namespace CGraphics1.Labs
 
         public void DrawPlane()
         {
+            const int linewidth = 1;
             Graphics g = Graphics.FromImage(ModelView.Image);
+
+            plane.curves.Add(new CurveB3(new Point(200,250),
+                new Point(210,220),
+                new Point(240,220),
+                new Point(250,255),
+                new Pen(Brushes.Black, linewidth)));
+            plane.curves.Add(new CurveB3(new Point(250, 255),
+                new Point(255, 256),
+                new Point(265, 256),
+                new Point(270, 257),
+                new Pen(Brushes.Black, linewidth)));
+            plane.curves.Add(new CurveB3(new Point(270, 257),
+                new Point(350, 90),
+                new Point(380, 80),
+                new Point(420, 100),
+                new Pen(Brushes.Black, linewidth)));
+            plane.curves.Add(new CurveB3(new Point(420, 100),
+                new Point(450, 90),
+                new Point(460, 120),
+                new Point(400, 270),
+                new Pen(Brushes.Black, linewidth)));
 
             plane.Draw(g);
 
@@ -37,9 +59,13 @@ namespace CGraphics1.Labs
 
         public void TransformPlaneIntoSmth(Drawing gridandaxis)
         {
-            const double timeout = 1000;
+            const double timeout = 50;
             Graphics g = Graphics.FromImage(ModelView.Image);
-            
+            for(double t = 0.1; t <= 1; t+=0.1)
+            {
+                System.Threading.Thread.Sleep(50);
+
+            }
 
             ModelView.Refresh();
         }

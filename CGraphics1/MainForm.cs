@@ -27,6 +27,10 @@ namespace CGraphics1
         Lab2 lab2;
         Lab3 lab3;
 
+
+
+        bool DrawingCurve = false;
+
         List<Drawing> alldrawings = new List<Drawing>();
         Curve curve = new Curve();
         Drawing drawing = new Drawing();
@@ -87,7 +91,7 @@ namespace CGraphics1
             const int range = 300;
             
             // Draw Axis
-            Pen arrow_pen = new Pen(Brushes.Black, 3);
+            Pen arrow_pen = new Pen(Brushes.Black, 1);
 
             GraphicsPath hPath = new GraphicsPath();
 
@@ -515,17 +519,44 @@ namespace CGraphics1
 
         private void DrawContourButton_Click(object sender, EventArgs e)
         {
-            lab3.Test();
+            lab3.DrawPlane();
         }
 
         private void ChangeContourButton_Click(object sender, EventArgs e)
         {
-
+            lab3.TransformPlaneIntoSmth(gridandaxis);
         }
 
         private void EditContourButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void getContourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveContourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void ModelView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                //lab3.plane.curves.Add(new )
+            }
+        }
+
+        private void DrawCurveB3Button_Click(object sender, EventArgs e)
+        {
+
+            //var someevent = new MouseEventHandler(ModelView_MouseDown);
+            //ModelView.MouseDown += someevent;
         }
     }
 }
